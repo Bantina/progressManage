@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>进程管理</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<!-- /theme JS files -->
+
+	<!-- My JS files -->
+	<script type="text/javascript" src="assets/js/process.js"></script>
+	<!-- /My JS files -->
+
+</head>
+
+<body class="navbar-top has-detached-left pace-done">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/image.png" alt="">
+						<span>Victoria</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+						<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="assets/images/image.png" class="img-circle img-sm" alt=""></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">Victoria Baker</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+								<li><a href="index.html"><i class="icon-home4"></i> <span>首页</span></a></li>
+								<li class="active">
+									<a href="process.html"><i class="icon-stack"></i> <span>进程管理</span></a>
+								</li>
+								<!-- /main -->
+
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header">
+
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li class="active"><a href="index.html"><i class="icon-home2 position-left"></i> 进程管理</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /page header -->
+
+
+				<!-- Content area -->
+				<div class="content">
+
+					<!-- Detached sidebar -->
+					<div class="sidebar-detached affix" style="top:104px;">
+						<div class="sidebar sidebar-default">
+							<div class="sidebar-content">
+								<!-- Sub navigation -->
+								<div class="sidebar-category">
+									<div class="category-title">
+										<span>服务筛选：</span>
+										<ul class="icons-list">
+											<li><a href="#" data-action="collapse"></a></li>
+										</ul>
+									</div>
+
+									<div class="category-content no-padding">
+										<ul class="navigation navigation-alt navigation-accordion navigation_server">
+											<li><a class="navigation_server_all active" href="#"><i class="icon-server"></i>所有进程</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /sub navigation -->
+
+							</div>
+						</div>
+					</div>
+		            <!-- /detached sidebar -->
+
+		            <!-- Detached content -->
+					<div class="container-detached">
+						<div class="content-detached">
+							<!-- Generated column content -->
+							<div class="panel panel-flat" id="process_datatable">
+								<div class="panel-heading">
+									<h5 class="panel-title">所有进程</h5>
+									<div class="heading-elements">
+										<ul class="icons-list">
+					                		<li class="pro-nav-toggle"><a class="pro-nav-action pro_startAll"><i class="icon-switch"></i>全部启动</a></li>
+					                		<li class="pro-nav-toggle"><a class="pro-nav-action pro_stopAll"><i class="icon-spam"></i>全部停止</a></li>
+					                		<li><a class="pro-nav-action pro_refreshAll"><i class=" icon-database-refresh"></i>数据刷新</a></li>
+					                		<li><a class="pro-nav-action" data-toggle="modal" data-target="#addProgressModal"><i class="icon-add"></i>新添进程</a></li>
+					                	</ul>
+				                	</div>
+								</div>
+								<table class="table table-hover datatable-generated datatable_progress">
+									<thead>
+							            <tr>
+							                <th>服务器</th>
+							                <th>业务</th>
+							                <th>进程名</th>
+							                <th>进程描述</th>
+							                <th>进程状态</th>
+							                <th>操作</th>
+							            </tr>
+							        </thead>
+								</table>
+							</div>
+							<!-- /generated column content -->
+						</div>
+					</div>
+					<!-- /detached content -->
+
+
+
+
+					<!-- Generated column content -->
+					<!-- <div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">所有进程</h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+			                		<li><a data-toggle="modal" data-target="#addProgressModal"><i class="icon-add"></i></a></li>
+			                	</ul>
+		                	</div>
+						</div>
+						<table class="table table-hover datatable-generated datatable_progress">
+							<thead>
+					            <tr>
+					                <th>服务器</th>
+					                <th>进程名</th>
+					                <th>描述</th>
+					                <th>状态</th>
+					                <th>操作</th>
+					            </tr>
+					        </thead>
+						</table>
+					</div> -->
+					<!-- /generated column content -->
+		
+					
+					<!-- Add progress Modal -->
+					<div class="modal fade" id="addProgressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close icons-list" data-dismiss="modal"><span class="addProgressModal-close" aria-hidden="true" data-action="close"></span></button>
+					        <h4 class="modal-title" id="myModalLabel">进程添加</h4>
+					      </div>
+					      <div class="modal-body">
+								<form class="form-horizontal pro_addForm" action="#">
+									<div class="form-group">
+										<label class="control-label col-lg-2">服务器：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_server">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">业 务：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_business">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">worker标识：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_worker">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">命 令：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_order">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">执行用户：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_user">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">进程数量：</label>
+										<div class="col-lg-10 mustStar">
+											<input type="text" class="form-control pro_num">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">进程名称：</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control pro_name">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="panel panel-collapsed panel-my">
+											<div class="panel-heading panel-heading-my">
+												<div class="panel-title">高级选项</div>
+												<div class="heading-elements">
+													<ul class="icons-list">
+								                		<li><a data-action="collapse"></a></li>
+								                	</ul>
+							                	</div>
+						                	</div>
+
+											<div class="panel-body">
+												<form class="form-horizontal" action="#">
+													<div class="form-group">
+														<label class="control-label col-lg-2">Text input</label>
+														<div class="col-lg-10">
+															<input type="text" class="form-control">
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="control-label col-lg-2">Password</label>
+														<div class="col-lg-10">
+															<input type="password" class="form-control">
+														</div>
+													</div>
+
+												</form>
+											</div>
+										</div>
+									</div>
+								</form>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        <button type="submit" class="btn btn-primary" id="addProgress">添加<i class="icon-arrow-right14 position-right"></i></button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!-- /add progress modal -->
+
+					<!-- Show Server Detail Modal -->
+					<!-- <a data-toggle="modal" data-target="#serverDetailModal"></a> -->
+					<div class="modal fade" id="serverDetailModal" tabindex="-1" role="dialog" aria-labelledby="serverDetailModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close icons-list" data-dismiss="modal"><span class="serverDetailModal-close" aria-hidden="true" data-action="close"></span></button>
+					        <h4 class="modal-title" id="serverDetailModalLabel">服务器详情</h4>
+					      </div>
+					      <div class="modal-body">
+								<form class="form-horizontal pro_addForm" action="#">
+									<div class="form-group">
+										<label class="control-label col-lg-2">服务器 : </label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control serverDetail_name" disabled>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">apiVersion : </label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control serverDetail_apiVersion" disabled>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">identification: </label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control serverDetail_identi" disabled>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2">state :</label>
+										<div class="col-lg-10">
+											<input type="text" class="form-control serverDetail_state" disabled>
+										</div>
+									</div>
+								</form>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!-- /show server detail  modal -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>

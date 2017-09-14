@@ -1,0 +1,102 @@
+.icons-list span[data-action]:after{
+	font-family: 'icomoon';
+	font-size: 16px;
+	min-width: 16px;
+	text-align: center;
+	display: inline-block;
+	line-height: 1;
+	vertical-align: middle;
+}
+.icons-list span[data-action="close"]:after{
+	content: '\e9b6';
+}
+.icons-list a[data-action="collapseLeft"]:after{
+	content: '\e9c3';
+}
+.form-group-nomargin{
+	margin: 0;
+}
+
+/*Modal*/
+/* 重写 bootstrap modal 垂直居中*/
+.modal.fade .modal-dialog{-webkit-transform:translate(0,-100%);-ms-transform:translate(0,-100%);-o-transform:translate(0,-100%);transform:translate(0,-100%)}
+.modal.in .modal-dialog{-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);-o-transform:translate(0,-50%);transform:translate(0,-50%)}
+.modal-dialog{position:absolute;width:auto;margin:10px auto;left:0;right:0;top:50%;}
+@media (min-width:768px){.modal-dialog{width:600px}
+#addProgressModal .form-horizontal .form-group:last-child{
+	margin-bottom: 0;
+}
+
+/*重写 DataTable 样式*/
+.dataTables_filter>label>span{
+	margin: 8px;
+}
+.dataTables_length>label>span{
+	margin: 8px;
+}
+select[name="DataTables_Table_0_length"]{
+	margin-top: 8px;
+}
+
+/*重写 core.min.css 样式*/
+.icons-list>li>a>i{
+	top: -2px;
+	padding-right: 3px;
+}
+
+
+/*自定义样式*/
+.panel-my{
+	margin-bottom: 0;
+	box-shadow: 0px 2px 10px #ccd4d3;
+}
+.panel-heading-my{
+	padding:6px 20px;
+	border-bottom: solid 1px #eee;
+}
+.pro-nav-action{
+	margin-left: 10px;
+}
+.pro-nav-action i{
+	color: #26a69a;
+}
+.icons-list .pro-nav-toggle{
+	display: none;
+}
+.pro-action{
+	padding: 5px 0;
+	margin-right: 10px;
+}
+.pro-action:last-child{
+	margin: 0;
+}
+.td_action_black {
+	color: #999;
+}
+
+.sidebar-default .navigation li .active{
+	color: #26a69a;
+}
+
+
+
+
+
+
+.mustStar{
+	position: relative;
+}
+.mustStar:after{
+	content: '*';
+	position: absolute;
+	top: 5px;
+	left: -5px;
+	color: tomato;
+	font-size: 20px;
+}
+
+/* progress.html*/
+
+
+
+
