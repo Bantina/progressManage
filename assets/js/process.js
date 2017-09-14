@@ -32,7 +32,7 @@ $(function() {
 		}
 	});
 
-/*
+	/*
 	 * 服务器 所有进程列表数据展示
 	 * @programs 数组，包含服务器名svName 的进程数组;
 	 */
@@ -74,7 +74,7 @@ $(function() {
 			}, {
 				orderable: false,
 				targets: [5],
-				data: null
+				data: null,
 				defaultContent: [
 					'<a class="pro-action td_action_start" href="#">启动</a>',
 					'<a class="pro-action td_action_stop" href="#">停止</a>',
