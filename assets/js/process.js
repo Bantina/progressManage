@@ -46,34 +46,10 @@ $(function() {
 			row.proDesc = programs[i].description;
 			if (programs[i].state == 20) { // running
 				row.proState = '<span class="label label-success">' + programs[i].statename + '</span>';
-				row.proAction = [
-					'<span class="pro-action td_action_black" href="#">启动</span>',
-					'<a class="pro-action td_action_stop" href="#">停止</a>',
-					'<a class="pro-action td_action_restart" href="#">重启</a>',
-					'<a class="pro-action td_action_edit" href="#">修改配置</a>',
-					'<a class="pro-action td_action_reload" href="#">重载</a>',
-					'<a class="pro-action td_action_delete" href="#">删除</a>'
-				].join('');
 			} else if (programs[i].state == 0) { // stopped
 				row.proState = '<span class="label label-danger">' + programs[i].statename + '</span>';
-				row.proAction = [
-					'<a class="pro-action td_action_start" href="#">启动</a>',
-					'<span class="pro-action td_action_black" href="#">停止</span>',
-					'<span class="pro-action td_action_black" href="#">重启</span>',
-					'<a class="pro-action td_action_edit" href="#">修改配置</a>',
-					'<a class="pro-action td_action_reload" href="#">重载</a>',
-					'<a class="pro-action td_action_delete" href="#">删除</a>'
-				].join('');
 			} else {
 				row.proState = '<span class="label label-info">' + programs[i].statename + '</span>';
-				row.proAction = [
-					'<a class="pro-action td_action_start" href="#">启动</a>',
-					'<a class="pro-action td_action_stop" href="#">停止</a>',
-					'<a class="pro-action td_action_restart" href="#">重启</a>',
-					'<a class="pro-action td_action_edit" href="#">修改配置</a>',
-					'<a class="pro-action td_action_reload" href="#">重载</a>',
-					'<a class="pro-action td_action_delete" href="#">删除</a>'
-				].join('');
 			}
 			rows.push(row);
 		};
@@ -91,8 +67,6 @@ $(function() {
 				data: 'proDesc'
 			}, {
 				data: 'proState'
-			}, {
-				data: 'proAction'
 			}],
 			columnDefs: [{
 				orderable: false,
@@ -101,14 +75,14 @@ $(function() {
 				orderable: false,
 				targets: [5],
 				data: null
-				// defaultContent: [
-				// 	'<a class="pro-action td_action_start" href="#">启动</a>',
-				// 	'<a class="pro-action td_action_stop" href="#">停止</a>',
-				// 	'<a class="pro-action td_action_restart" href="#">重启</a>',
-				// 	'<a class="pro-action td_action_edit" href="#">修改配置</a>',
-				// 	'<a class="pro-action td_action_reload" href="#">重载</a>',
-				// 	'<a class="pro-action td_action_delete" href="#">删除</a>'
-				// ].join('')
+				defaultContent: [
+					'<a class="pro-action td_action_start" href="#">启动</a>',
+					'<a class="pro-action td_action_stop" href="#">停止</a>',
+					'<a class="pro-action td_action_restart" href="#">重启</a>',
+					'<a class="pro-action td_action_edit" href="#">修改配置</a>',
+					'<a class="pro-action td_action_reload" href="#">重载</a>',
+					'<a class="pro-action td_action_delete" href="#">删除</a>'
+				].join('')
 			}],
 		});
 
