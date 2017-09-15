@@ -26,6 +26,12 @@
 #addProgressModal .form-horizontal .form-group:last-child{
 	margin-bottom: 0;
 }
+.datatable_progress .group{
+	background: #f8f8f8;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+	padding: 12px 10px;
+}
 
 /*重写 DataTable 样式*/
 .dataTables_filter>label>span{
@@ -42,6 +48,27 @@ select[name="DataTables_Table_0_length"]{
 .icons-list>li>a>i{
 	top: -2px;
 	padding-right: 3px;
+}
+.page-header{
+	margin: 0 0 10px 0;
+}
+/*重写 components.min.css 样式*/
+@media (min-width: 769px){
+	.content{
+		padding:10px;
+	}
+	.sidebar{
+		width:180px;
+	}
+	.has-detached-left .content-detached{
+		margin-left: 190px;
+	}
+}
+.sidebar-default .category-content{
+	overflow: hidden;
+}
+.category-title>span{
+	text-transform: inherit;
 }
 
 
@@ -61,25 +88,45 @@ select[name="DataTables_Table_0_length"]{
 	color: #26a69a;
 }
 .icons-list .pro-nav-toggle{
-	display: none;
+	display: inline-block;
 }
 .pro-action{
 	padding: 5px 0;
 	margin-right: 10px;
+	float: left;
 }
 .pro-action:last-child{
 	margin: 0;
+}
+.pro-action-group{
+	float:right;
+	padding: 5px 0;
+	margin-right: 15px;
+	color: #333;
+}
+.pro-action-group i{
+	top:-2px;
+	padding-right: 3px;
+	color: #26a69a;
+}
+.pro-action-group:hover{
+	color:rgba(51, 51, 51, 0.78);
+}
+.pro-action-group:hover i{
+	color: rgba(38, 166, 154, 0.79)
 }
 .td_action_black {
 	color: #999;
 }
 
-.sidebar-default .navigation li .active{
+.sidebar-default .navigation .active{
 	color: #26a69a;
 }
 
-
-
+/* 悬挂菜单样式 */
+.sidebar-default .navigation{
+	padding:0;
+}
 
 
 

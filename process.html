@@ -144,11 +144,16 @@
 				<div class="content">
 
 					<!-- Detached sidebar -->
-					<div class="sidebar-detached affix" style="top:104px;">
+					<div class="sidebar-detached affix" style="top:94px;">
 						<div class="sidebar sidebar-default">
-							<div class="sidebar-content">
+							<div class="sidebar-content navigation_server">
+								<div class="category-content no-padding" style="border-bottom:solid 1px #eee;">
+									<ul class="navigation navigation-alt navigation-accordion">
+										<li><a class="navigation_server_all active" href="#"><i class="icon-server"></i>所有进程</a></li>
+									</ul>
+								</div>
 								<!-- Sub navigation -->
-								<div class="sidebar-category">
+								<!-- <div class="sidebar-category">
 									<div class="category-title">
 										<span>服务筛选：</span>
 										<ul class="icons-list">
@@ -157,11 +162,12 @@
 									</div>
 
 									<div class="category-content no-padding">
-										<ul class="navigation navigation-alt navigation-accordion navigation_server">
+										<ul class="navigation navigation-alt navigation-accordion">
 											<li><a class="navigation_server_all active" href="#"><i class="icon-server"></i>所有进程</a></li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
+
 								<!-- /sub navigation -->
 
 							</div>
@@ -188,6 +194,7 @@
 								<table class="table table-hover datatable-generated datatable_progress">
 									<thead>
 							            <tr>
+							                <th>分组</th>
 							                <th>服务器</th>
 							                <th>业务</th>
 							                <th>进程名</th>
@@ -242,9 +249,18 @@
 					      <div class="modal-body">
 								<form class="form-horizontal pro_addForm" action="#">
 									<div class="form-group">
-										<label class="control-label col-lg-2">服务器：</label>
+										<!-- <label class="control-label col-lg-2">服务器：</label>
 										<div class="col-lg-10 mustStar">
 											<input type="text" class="form-control pro_server">
+										</div> -->
+										<label class="control-label col-lg-2">服务器：</label>
+										<div class="col-lg-10 mustStar dropdown">
+											  <button class="btn btn-default dropdown-toggle col-lg-12" type="button" id="sel_server" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											    <span class="sel_server_val">请选择服务器</span>
+											    <span class="icon-arrow-down5 pull-right" style="margin-top:2px;"></span>
+											  </button>
+											  <ul class="dropdown-menu col-lg-12 sel_server_ul" aria-labelledby="sel_server">
+											  </ul>
 										</div>
 									</div>
 									<div class="form-group">
