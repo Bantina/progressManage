@@ -24,7 +24,7 @@
 	<!-- Theme JS files -->
 	<script type="text/javascript" src="assets/js/plugins/echarts/echarts.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/echarts/limitless.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
 	<!-- /theme JS files -->
 	
@@ -114,6 +114,9 @@
 								<li>
 									<a href="process.html"><i class="icon-stack"></i> <span>进程管理</span></a>
 								</li>
+								<li>
+									<a href="processConf.html"><i class="icon-cog7"></i> <span>配置中心</span></a>
+								</li>
 								<!-- /main -->
 
 							</ul>
@@ -144,21 +147,19 @@
 				<div class="content">
 
 					<!-- Multiple donut charts -->
-					<div class="panel panel-flat">
+					<div class="panel panel-flat" id="serverNum-diagram">
 						<div class="panel-heading">
-							<h5 class="panel-title">作业调度</h5>
+							<h5 class="panel-title"></h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
-				            		<li><a data-action="collapse"></a></li>
-				            		<li><a data-action="reload"></a></li>
-				            		<li><a data-action="close"></a></li>
+				            		<li><a class="reload_serverNum" data-action="reload"></a></li>
 				            	</ul>
 			            	</div>
 						</div>
 
 						<div class="panel-body">
 							<div class="chart-container has-scroll">
-								<div class="chart has-fixed-height has-minimum-width" id="multiple_donuts" style="height: 450px;"></div>
+								<div class="chart has-fixed-height has-minimum-width" id="multiple_donuts" style="height: 250px;"></div>
 							</div>
 						</div>
 					</div>
