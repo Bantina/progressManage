@@ -161,7 +161,7 @@ $(function() {
 					'<a class="pro-action td_action_start" href="javascript:void(0);">启动</a>',
 					'<a class="pro-action td_action_stop" href="javascript:void(0);">停止</a>',
 					'<a class="pro-action td_action_restart" href="javascript:void(0);">重启</a>',
-					'<a class="pro-action td_action_reload" href="javascript:void(0);">重载</a>'
+					// '<a class="pro-action td_action_reload" href="javascript:void(0);">重载</a>'
 					// '<a class="pro-action td_action_delete" href="javascript:void(0);">删除</a>'
 				].join('')
 			}],
@@ -178,7 +178,15 @@ $(function() {
 					var serverName = $(rows).eq(i).find('.td_pro_server').text(); // 同时按照 不同服务器 分组；
 					if (last !== (serverName + group)) {
 						$(rows).eq(i).before(
-							'<tr class="group" data-group-index="' + i + '">' + '<td colspan="2">进程组：<span class="pro_group">' + group + '</span></td>' + '<td colspan="4">' + '<a class="pro-action-group td_action_groupEdit" href="javascript:void(0);" data-toggle="modal" data-target="#editProgressGroupModal"><i class="icon-pencil7"></i>组配置修改</a>' + '<a class="pro-action-group td_action_groupStop" href="javascript:void(0);"><i class="icon-spam"></i>组停止</a>' + '<a class="pro-action-group td_action_groupStart" href="javascript:void(0);"><i class="icon-switch"></i>组启动</a>' + '</td>' + '</tr>'
+							'<tr class="group" data-group-index="' + i + '">' 
+							+ '<td colspan="2">进程组：<span class="pro_group">' + group + '</span></td>' 
+							+ '<td colspan="4">' 
+							+ '<a class="pro-action-group td_action_groupReload" href="javascript:void(0);"><i class="icon-google-drive"></i>重载</a>' 
+							+ '<a class="pro-action-group td_action_groupDel" href="javascript:void(0);"><i class="icon-bin"></i>组删除</a>' 
+							+ '<a class="pro-action-group td_action_groupEdit" href="javascript:void(0);" data-toggle="modal" data-target="#editProgressGroupModal"><i class="icon-pencil7"></i>组配置修改</a>' 
+							+ '<a class="pro-action-group td_action_groupStop" href="javascript:void(0);"><i class="icon-spam"></i>组停止</a>' 
+							+ '<a class="pro-action-group td_action_groupStart" href="javascript:void(0);"><i class="icon-switch"></i>组启动</a>' 
+							+ '</td>' + '</tr>'
 						);
 
 						last = serverName + group;
@@ -677,6 +685,70 @@ $(function() {
 				}
 			})
 		}
+	})
+	// 组重载
+	$('.datatable_progress').on('click', '.td_action_groupReload', function() {
+		var targP = $(this).parent().parent().next();
+		var serverName = targP.find('.td_pro_server').text();
+		var workerStr = targP.find('.td_pro_progress').text();
+		var indexS = targP.find('.td_pro_progress').text().indexOf(':')+1;
+		var indexE = workerStr.length-3;
+		var workerName = workerStr.substring(indexS , indexE);
+		$.ajax({
+			type: "post",
+			url: URL_Port + "/Rpc/Programs/reload",
+			data: {
+				serverName: serverName,
+				workerName: workerName
+			},
+			dataType: 'json',
+			success: function(res) {
+				if (res.status == 1) {
+					warningModal('0', '重载成功～');
+				} else {
+					warningModal('错误信息', res.data);
+				}
+			}
+		})
+	})
+
+	// 组删除
+	var delTarg = {};
+	$('.datatable_progress').on('click', '.td_action_groupDel', function() {
+		var targP = $(this).parent().parent().next();
+		delTarg.serverName = targP.find('.td_pro_server').text();
+		delTarg.busyName = targP.find('.td_pro_business').text();
+		var workerStr = targP.find('.td_pro_progress').text();
+		var indexS = targP.find('.td_pro_progress').text().indexOf(':')+1;
+		var indexE = workerStr.length-3;
+		delTarg.workerName = workerStr.substring(indexS , indexE);
+		delTarg.index = targP.index();
+
+		$('#deleteProgressGroupModal').modal('show');
+	})
+	$('#deleteProgressGoup').on('click', function() {
+		$.ajax({
+			type: "post",
+			url: URL_Port + "/Configure/Configure/doDeleteWorker",
+			data: {
+				serverName: delTarg.serverName,
+				business: delTarg.busyName,
+				workerName: delTarg.workerName
+			},
+			dataType: 'json',
+			success: function(res) {
+				if (res.status == 1) {
+					$('#deleteProgressGroupModal').modal('hide');
+					CONF_datatable.row(delTarg.index).remove().draw(); // 删除当前行
+
+					setTimeout(function() {
+						warningModal('0', '删除成功');
+					}, 400);
+				} else {
+					alert(res.data);
+				}
+			}
+		})
 	})
 
 	// 单进程操作

@@ -114,7 +114,7 @@
 								<li class="active">
 									<a href="process.html"><i class="icon-stack"></i> <span>进程管理</span></a>
 								</li>
-								<li>
+								<li style="display:none;">
 									<a href="processConf.html"><i class="icon-cog7"></i> <span>配置中心</span></a>
 								</li>
 								<!-- /main -->
@@ -399,6 +399,26 @@
 					  </div>
 					</div>
 					<!-- /show server detail  modal -->
+
+					<!-- Delete progress Group Modal -->
+					<div class="modal fade" id="deleteProgressGroupModal" tabindex="-1" role="dialog" aria-labelledby="deleteProgressGroupModalLabel">
+					  <div class="modal-dialog" role="document" style="width:400px;">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close icons-list" data-dismiss="modal"><span class="deleteProgressGroupModal-close" aria-hidden="true" data-action="close"></span></button>
+					        <h4 class="modal-title" id="deleteProgressGroupModalLabel">删除确认</h4>
+					      </div>
+					      <div class="modal-body">
+								确定删除该组配置吗？
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					        <button type="submit" class="btn btn-primary" id="deleteProgressGoup">确认删除</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!-- /delete progress group modal -->
 
 				</div>
 				<!-- /content area -->
